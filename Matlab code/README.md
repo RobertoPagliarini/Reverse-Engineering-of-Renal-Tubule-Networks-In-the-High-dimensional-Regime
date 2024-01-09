@@ -55,6 +55,7 @@ GGMatrixCorrThre: the matrix associated with the output of the ORA-Quantile Algo
 CorrMatrixThreLocalFDR: the correlation matrix obtained by using Local-FDR threshold;
 
 GGMatrixThreLocalFDR: the matrix associated with the Graphical Gaussian Model obtained by using Local-FDR threshold;
+
 GGMatrix: the matrix associated with the Graphical Gaussian Model;
 
 CorrMatrix: the correlation matrix;
@@ -73,3 +74,18 @@ where mu is the mean and sigm is the standard deviation;
 PvalCorrMatrix: matrix of p-values associated with correlation matrix computed by applying t-test;
 
 VarInModel: name of the variables/nodes, if this input is not empty.
+
+ScriptOraNDNetworkInference.mat
+
+This script computes the networks for all the 14 segments by extracting the data from the xlsx file and by applying the ORASchafferShrinkageNetworkInference function. 
+
+It generates two folders: 
+
+a) RenalTubuleSegmentsData: it contains the dataset for each segment in MatLab format;
+
+b) RenalTubuleSegmentsNetworksOra: it containts, for each segment, the output structure for each result of the inference function. Particularly, the function is called with these inputs:
+
+    [MatricesOraQuantile] = ORASchafferShrinkageNetworkInference(dataclean','Ora','Q',GeneInModel);
+
+    [MatricesOraQuantileND] = ORASchafferShrinkageNetworkInference(dataclean','Ora','N',GeneInModel);
+
